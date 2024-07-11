@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { buttonVariants } from './ui/button'
 import { Icons } from './icons'
 import MainNav from './main-nav'
+import MobileNav from './mobile-nav'
 
 export default function SiteHeader() {
   return (
@@ -12,18 +13,19 @@ export default function SiteHeader() {
         <MainNav />
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
-            <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+            <Link href={siteConfig.links.github} target="_blank" rel="noreferrer" className='hidden sm:inline-block'>
               <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0")}>
                 <Icons.gitHub className="h-4 w-4" />
                 <span className="sr-only">Github</span>
               </div>
             </Link>
-            <Link href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
+            <Link href={siteConfig.links.linkedin} target="_blank" rel="noreferrer" className='hidden sm:inline-block'>
               <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0")}>
                 <Icons.linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </div>
             </Link>
+            <MobileNav />
           </nav>
         </div>
       </div>

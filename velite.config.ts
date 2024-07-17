@@ -1,7 +1,4 @@
 import { defineConfig, defineCollection, s } from "velite";
-// import rehypeSlug from "rehype-slug";
-// import rehypePrettyCode from "rehype-pretty-code";
-// import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -18,7 +15,6 @@ const posts = defineCollection({
       description: s.string().max(999).optional(),
       date: s.isodate(),
       published: s.boolean().default(true),
-      tags: s.array(s.string()).optional(),
       body: s.mdx(),
     })
     .transform(computedFields),
@@ -35,20 +31,7 @@ export default defineConfig({
   },
   collections: { posts },
   mdx: {
-    rehypePlugins: [
-      // rehypeSlug,
-      // [rehypePrettyCode, { theme: "github-dark" }],
-      // [
-      //   rehypeAutolinkHeadings,
-      //   {
-      //     behavior: "wrap",
-      //     properties: {
-      //       className: ["subheading-anchor"],
-      //       ariaLabel: "Link to section",
-      //     },
-      //   },
-      // ],
-    ],
+    rehypePlugins: [],
     remarkPlugins: [],
   },
 });

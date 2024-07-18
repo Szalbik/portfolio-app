@@ -1,5 +1,11 @@
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { siteConfig } from '@/config/site';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Me',
+  description: 'Learn more about Damian',
+}
 
 export default async function AboutPage() {
   return (
@@ -9,7 +15,7 @@ export default async function AboutPage() {
           <h1 className="inline-block font-black text-4xl lg:text-5xl">About Me</h1>
         </div>
       </div>
-      <hr className="my-8" />
+      <hr className="my-8"/>
       <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
         <div className="min-w-48 max-w-48 flex-col gap-2">
           <Avatar className='h-48 w-48'>
